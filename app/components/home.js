@@ -1,4 +1,5 @@
 import React from "react";
+import Table from "./table"
 import Graph from "./graph";
 
 export default class Home extends React.Component {
@@ -11,7 +12,8 @@ export default class Home extends React.Component {
         { a: -1, b: -5, c: -4 },
         { a: 2, b: -3, c: 7 }
       ],
-      xAxisLabel: "a"
+      xAxisLabel: "a",
+      dataVisualsView: "data-visuals-row"
     };
   }
 
@@ -21,6 +23,7 @@ export default class Home extends React.Component {
     return (
       <div id="container">
         <div className={this.state.dataVisualsView}>
+          <Table sortedData={sortedData} xAxisLabel={xAxisLabel} />
           <Graph sortedData={sortedData} xAxisLabel={xAxisLabel} />
         </div>
       </div>
