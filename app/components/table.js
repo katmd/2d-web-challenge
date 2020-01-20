@@ -18,8 +18,6 @@ export default class Table extends React.Component {
   getTableData() {
     return this.props.sortedData.map((dataRow, idx) => {
       // file sorted data into table elements
-      // const { a, b, c } = dataPoint;
-      // console.log(dataPoint);
       let rowData = [];
       for (let key of Object.keys(dataRow)) {
         rowData.push(dataRow[key])

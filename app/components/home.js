@@ -1,6 +1,7 @@
 import React from "react";
 import Table from "./table"
 import Graph from "./graph";
+import UserInput from "./user-input"
 
 export default class Home extends React.Component {
   constructor() {
@@ -15,6 +16,13 @@ export default class Home extends React.Component {
       xAxisLabel: "a",
       dataVisualsView: "data-visuals-row"
     };
+    this.addUserInput = this.addUserInput.bind(this);
+  }
+
+  addUserInput(input) {
+    this.setState(prevState => {
+      return { data: [...prevState.data, input] };
+    });
   }
 
   render() {
@@ -25,6 +33,10 @@ export default class Home extends React.Component {
         <div className={this.state.dataVisualsView}>
           <Table sortedData={sortedData} xAxisLabel={xAxisLabel} />
           <Graph sortedData={sortedData} xAxisLabel={xAxisLabel} />
+        </div>
+        <div className="submissions-row">
+          <UserInput sortedData={sortedData} addUserInput={this.addUserInput} />
+          <div id="empty-submission-space" />
         </div>
       </div>
     );
