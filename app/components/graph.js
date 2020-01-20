@@ -7,7 +7,8 @@ export default class Graph extends Component {
     super();
     this.state = {
       chartType: "line",
-      datasets: []
+      datasets: [],
+      currentxAxis: ""
     };
     this.createChart = this.createChart.bind(this);
     this.selectChartType = this.selectChartType.bind(this);
@@ -70,7 +71,7 @@ export default class Graph extends Component {
       if (
         this.state.datasets.length === 0 ||
         graphDatasets[keyIdxCounter].data.length !==
-          this.state.datasets[keyIdxCounter].data.length
+          this.state.datasets[keyIdxCounter].data.length || xAxisLabel !== this.state.currentxAxis
       ) {
         // retain color if data already exists
         if (this.state.datasets[keyIdxCounter]) {
@@ -81,7 +82,7 @@ export default class Graph extends Component {
             keyIdxCounter
           ].backgroundColor;
         }
-        this.setState({ datasets: graphDatasets });
+        this.setState({ datasets: graphDatasets, currentxAxis: xAxisLabel });
       }
       keyIdxCounter++;
     }

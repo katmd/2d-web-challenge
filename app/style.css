@@ -61,6 +61,10 @@ body {
   color: white;
 }
 
+#table th:hover {
+  background-color: #80958D;
+}
+
 #table th, #table td {
   border: 1px solid #ddd;
   padding: 10px;

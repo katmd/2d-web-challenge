@@ -23,15 +23,21 @@ export default class Home extends React.Component {
     this.setState(prevState => {
       return { data: [...prevState.data, input] };
     });
+    this.switchxAxis = this.switchxAxis.bind(this);
+  }
+
+  switchxAxis(input) {
+    this.setState({ xAxisLabel: input });
   }
 
   render() {
+    console.log("Rendered state: ", this.state)
     let xAxisLabel = this.state.xAxisLabel;
     let sortedData = [...this.state.data].sort((a, b) => a[xAxisLabel] - b[xAxisLabel]);
     return (
       <div id="container">
         <div className={this.state.dataVisualsView}>
-          <Table sortedData={sortedData} xAxisLabel={xAxisLabel} />
+          <Table sortedData={sortedData} xAxisLabel={xAxisLabel} switchxAxis={this.switchxAxis} />
           <Graph sortedData={sortedData} xAxisLabel={xAxisLabel} />
         </div>
         <div className="submissions-row">
