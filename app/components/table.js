@@ -11,15 +11,13 @@ export default class Table extends React.Component {
   getTableHeader() {
     let header = Object.keys(this.props.sortedData[0]);
     return header.map((key, idx) => {
-      return <th key={idx}>{key}</th>;
+      return <th key={idx} onClick={() => this.props.switchxAxis(key)} >{key}</th>;
     });
   }
 
   getTableData() {
     return this.props.sortedData.map((dataRow, idx) => {
       // file sorted data into table elements
-      // const { a, b, c } = dataPoint;
-      // console.log(dataPoint);
       let rowData = [];
       for (let key of Object.keys(dataRow)) {
         rowData.push(dataRow[key])
