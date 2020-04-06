@@ -23,7 +23,6 @@ export default class Home extends React.Component {
   }
 
   render() {
-    console.log("Rendered state: ", this.state)
     let xAxisLabel = this.state.xAxisLabel;
     let sortedData = [...this.state.data].sort((a, b) => a[xAxisLabel] - b[xAxisLabel]);
     return (

@@ -4,6 +4,7 @@ export default class Table extends React.Component {
   constructor(props) {
     super();
     this.props = props;
+    this.sortedData = props.sortedData;
     this.getTableHeader = this.getTableHeader.bind(this);
     this.getTableData = this.getTableData.bind(this);
   }
@@ -35,7 +36,7 @@ export default class Table extends React.Component {
   render() {
     return (
       <div className="table-container">
-        <div id="table-title">Holocene DataSet</div>
+        <div id="table-title">Visualization DataSet</div>
         <table id="table">
           <tbody>
             <tr>{this.getTableHeader()}</tr>

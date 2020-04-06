@@ -111,7 +111,7 @@ export default class Graph extends Component {
         maintainAspectRatio: false,
         title: {
           display: true,
-          text: "Holocene DataSet",
+          text: "Visualization DataSet",
           fontSize: 16
         },
         legend: {
